@@ -1,0 +1,20 @@
+# Compilación e información local de los IDE
+target/
+.idea/
+*.iml
+*.iws
+.smarttomcat/
+.classpath
+.project
+.settings/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Base de datos H2 local
+*.mv.db
+*.trace.db
+*.lock.db
+
+# Instrucciones locales del asistente
+/AGENTS.md
