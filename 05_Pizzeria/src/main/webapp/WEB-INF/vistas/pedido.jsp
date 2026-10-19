@@ -19,7 +19,7 @@
 
     <p><strong>Ingredientes:</strong></p>
     <ul>
-    <c:forEach items="${pizza.ingredientes}" var="ingredientes">
+    <c:forEach items="${pizza.listaIngredientes}" var="ingredientes">
         <li><c:out value="${ingredientes}"/></li>
     </c:forEach>
     </ul>
