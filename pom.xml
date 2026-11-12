@@ -6,7 +6,11 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>05_Pizzeria</module>
+        <module>01_Servlets</module>
+        <module>02_JSP</module>
+        <module>03_HTTP</module>
+        <module>04_Pizzeria</module>
+        <module>05_Ordenador</module>
     </modules>
     <properties>
         <maven.compiler.release>25</maven.compiler.release>
