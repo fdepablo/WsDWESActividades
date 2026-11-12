@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import modelo.Estudiante;
+import modelo.EstudianteRecord;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -56,12 +57,14 @@ public class EstudianteServlet extends HttpServlet {
                     "El nombre no puede estar vacío.");
             return;
         }
+
         for (Estudiante estudiante : estudiantes.values()) {
             if (estudiante.getNombre().equals(nombre)) {
                 enviarTexto(response, HttpServletResponse.SC_CONFLICT, "Ya existe un estudiante con ese nombre.");
                 return;
             }
         }
+
         response.setHeader("Location", request.getContextPath() + "/estudiantes/28");
         enviarTexto(response, HttpServletResponse.SC_CREATED, "Se crearía el estudiante 28: " + nombre + ". Creación simulada.");
     }
@@ -112,10 +115,12 @@ public class EstudianteServlet extends HttpServlet {
         try {
             identificador = Integer.parseInt(id);
         } catch (NumberFormatException e) {
+            //Nos mandan estudiantes/pepe, daría error
             enviarTexto(response, HttpServletResponse.SC_BAD_REQUEST, "El identificador debe ser un número entero.");
             return null;
         }
         Estudiante estudiante = estudiantes.get(identificador);
+        //Si el estudiante no se encuentra en el hashmap, devovlemos 404
         if (estudiante == null) {
             enviarTexto(response, HttpServletResponse.SC_NOT_FOUND, "No existe el estudiante " + identificador + ".");
         }
