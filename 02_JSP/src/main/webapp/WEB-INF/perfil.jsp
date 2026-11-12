@@ -11,7 +11,9 @@
     <table>
         <caption>Datos del usuario</caption>
         <tbody>
-            <tr><th scope="row">Nombre completo</th><td>${requestScope.usuario.nombreCompleto}</td></tr>
+            <tr>
+                <th scope="row">Nombre completo</th>
+                <td>${requestScope.usuario.nombreCompleto}</td></tr>
             <tr><th scope="row">Nombre de usuario</th><td>${requestScope.usuario.nombreUsuario}</td></tr>
             <tr><th scope="row">Edad</th><td>${requestScope.usuario.edad}</td></tr>
             <tr><th scope="row">Correo electrónico</th><td>${requestScope.usuario.correoElectronico}</td></tr>

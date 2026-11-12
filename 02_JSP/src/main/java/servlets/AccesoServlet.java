@@ -13,6 +13,7 @@ import java.util.HashMap;
 /** Comprueba unas credenciales de prueba y pasa a las JSP los datos de la petición. */
 @WebServlet("/acceso")
 public class AccesoServlet extends HttpServlet {
+
     private final HashMap<String, Usuario> usuarios = new HashMap<>();
 
     /** Prepara una vez los tres usuarios; el mapa solo se consulta durante las peticiones. */
@@ -65,6 +66,8 @@ public class AccesoServlet extends HttpServlet {
         }
         request.setAttribute("usuario", usuario);
         request.setAttribute("mayoriaEdad", mayoriaEdad);
+        //requeste.getServletContext nos devuelve el objeto comun a todos los usuarios
+        //request.getServletContext().setAttribute("atributoComun","Valor comun");
         request.getRequestDispatcher("/WEB-INF/perfil.jsp").forward(request, response);
     }
 
