@@ -9,7 +9,7 @@ public class Pizza {
     private String direccion;
     private String telefono;
     private String email;
-    private int precio; // Céntimos, incluido el IVA.
+    private double precio; // Euros, incluido el IVA.
     private Tamanio tamanio;
     private List<Ingrediente> listaIngredientes;
     private String[] tamaniosRecibidos = new String[0];
@@ -83,11 +83,11 @@ public class Pizza {
 
     /** Devuelve el total en euros para mostrarlo en la JSP. */
     public double getPrecio() {
-        return precio / 100.0;
+        return precio;
     }
 
-    /** Recibe el total en céntimos calculado por el gestor. */
-    public void setPrecio(int precio) {
+    /** Recibe el total en euros con IVA calculado por el gestor. */
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 

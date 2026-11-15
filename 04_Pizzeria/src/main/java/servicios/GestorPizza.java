@@ -88,14 +88,14 @@ public class GestorPizza {
      * Precondición: todos los datos han sido validados por procesar.
      *
      * @param pizza pedido válido con tamaño e ingredientes asignados
-     * @return total con IVA en céntimos; las tarifas base son euros enteros
+     * @return precio total en euros con el IVA incluido
      */
-    private int calcularPrecio(Pizza pizza) {
-        int precioSinIva = pizza.getTamanio().getPrecio();
+    private double calcularPrecio(Pizza pizza) {
+        double precioSinIva = pizza.getTamanio().getPrecio();
         for (Ingrediente ingrediente : pizza.getListaIngredientes()) {
             precioSinIva += ingrediente.getPrecio();
         }
-        // Cada euro de base se convierte en 121 céntimos al incluir el 21 % de IVA.
-        return precioSinIva * 121;
+        // Al precio en euros se le añade el IVA del 21 %.
+        return precioSinIva * 1.21;
     }
 }

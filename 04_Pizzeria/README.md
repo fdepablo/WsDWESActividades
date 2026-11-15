@@ -79,7 +79,7 @@ Se conserva la ampliación solicitada: los ingredientes tienen tarifas distintas
 
 Los ejemplos de 6 €, 12 € y 19 € del cuerpo principal del enunciado son anteriores al IVA y usan la tarifa uniforme de 1 € por ingrediente. Los dos últimos cambian al conservar esta ampliación.
 
-`calcularPrecio()` es privado y solo se llama después de validar. Devuelve céntimos: como todas las tarifas son euros enteros, multiplicar la suma por 121 incluye exactamente el IVA. `Pizza` guarda esos céntimos y `getPrecio()` devuelve euros; `fmt:formatNumber` muestra dos decimales. El parámetro externo `precio` no se utiliza.
+`calcularPrecio()` es privado y solo se llama después de validar. Suma las tarifas en euros en una variable `double precioSinIva` y aplica el IVA con `precioSinIva * 1.21`. `Pizza` guarda directamente el precio en euros mediante un campo `double`, y `getPrecio()` devuelve ese valor. La JSP muestra dos decimales con `fmt:formatNumber`. El parámetro externo `precio` no se utiliza.
 
 ## Explicación guiada
 
