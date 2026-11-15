@@ -80,7 +80,3 @@ Comprueba también las tildes, el enlace de vuelta y que un equipo sin extras se
 - Tener cero extras es correcto; tener cero procesadores no lo es.
 - El precio base se suma una vez y el IVA no forma parte de este ejercicio.
 - Tras un forward, la URL continúa en `/configurar`. Actualizar el resumen puede reenviar el POST; no se guarda ningún pedido.
-
-## Para practicar
-
-Calcula a mano los tres ejemplos del enunciado y sigue el bucle del gestor para comprobar qué cantidades suma. Después compara lo que devuelve `getParameterValues()` sin extras y con varias casillas marcadas.

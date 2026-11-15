@@ -75,5 +75,3 @@ Todas las variables del cálculo son locales a `doGet()`: cada petición tiene s
 - **Decimales en la URL:** utiliza punto, por ejemplo `1.5`. La presentación del campo del formulario puede depender del idioma del navegador.
 - **Resultados con muchos decimales:** `double` usa representación binaria y puede mostrar aproximaciones, por ejemplo al sumar 0.1 y 0.2. Para dinero se suele utilizar `BigDecimal`; aquí se prioriza aprender el servlet.
 - **Números extremadamente grandes:** aunque las entradas sean finitas, una operación puede desbordar el rango de `double` y mostrar `Infinity`. Este ejemplo se centra en cálculos sencillos y no implementa aritmética de precisión arbitraria.
-
-Para practicar, explica el recorrido desde el botón **Calcular** hasta `doGet()` y comprueba los casos de la tabla.

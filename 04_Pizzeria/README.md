@@ -112,11 +112,9 @@ Para las pruebas inválidas, cambia solo el dato indicado y conserva válidos lo
 
 Comprueba las tildes, los enlaces de vuelta y que los errores se puedan provocar desde el formulario sin que el navegador bloquee el envío.
 
-## Errores frecuentes y práctica
+## Errores frecuentes
 
 - Repetir `/pizzeria` en la ruta del servlet y en el contexto produce una URL distinta de la esperada.
 - Los códigos HTML son minúsculos (`champinones`), aunque las constantes Java sean mayúsculas (`CHAMPINIONES`). El método `buscarPorCodigo()` realiza esa correspondencia.
 - Las tarifas del formulario son sin IVA; el resumen presenta el total con IVA.
 - No se debe leer un precio enviado por el cliente ni guardar la pizza actual en un campo del servlet.
-
-Como práctica, sigue un POST válido y uno inválido y localiza qué datos prepara el servlet, cuál es el primer error del gestor y qué atributos recibe la JSP.

@@ -11,6 +11,7 @@
         <module>03_HTTP</module>
         <module>04_Pizzeria</module>
         <module>05_Ordenador</module>
+        <module>06_Lambda</module>
     </modules>
     <properties>
         <maven.compiler.release>25</maven.compiler.release>

@@ -111,7 +111,3 @@ Es preferible utilizar etiquetas HTML que ya tengan esa función, como `<nav>`, 
 - Acceder al perfil directamente, ignorando que está dentro de `WEB-INF`.
 - Guardar el usuario actual en un campo del servlet: las peticiones comparten la instancia. Aquí el usuario consultado es una variable local.
 - Actualizar el perfil puede reenviar el POST, porque se ha usado forward. El navegador puede pedir confirmación; no se modifica ningún dato.
-
-## Para practicar
-
-Sigue una petición con credenciales incorrectas y otra correcta. Localiza dónde se crean los atributos, qué JSP los consulta y por qué el nombre se conserva tras un error pero no al volver al inicio con una nueva petición.
