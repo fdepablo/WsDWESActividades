@@ -1,6 +1,10 @@
 package modelo;
 
-/** Representa los dos datos de un estudiante utilizados en esta actividad. */
+/**
+ * Representa los dos datos de un estudiante utilizados en esta actividad.
+ * Notese que no tenemos setters, por lo que una vez inicializado el objeto
+ * no se puede cambiar su estado. Este concepto se llama inmutabilidad
+ * */
 public class Estudiante {
     private final int identificador;
     private final String nombre;
