@@ -12,6 +12,7 @@ Soluciones de actividades de Desarrollo Web en Entorno Servidor. Cada carpeta es
 | [04_Pizzeria](04_Pizzeria/) | Formulario, validación y cálculo del precio de una pizza | `/formulario` |
 | [05_Ordenador](05_Ordenador/) | Configura un ordenador con procesador y extras opcionales | `/configurar` |
 | [06_Lambda](06_Lambda/) | Doce ejercicios de funciones lambda con un catálogo de videojuegos | `lambdas.SolucionesVideojuegos.main()` |
+| [07_PizzeriaSession](07_PizzeriaSession/) | Compra con varias pizzas guardada en sesión | `/formulario` |
 
 ## Si aparece un 404
 

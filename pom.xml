@@ -12,6 +12,7 @@
         <module>04_Pizzeria</module>
         <module>05_Ordenador</module>
         <module>06_Lambda</module>
+        <module>07_PizzeriaSession</module>
     </modules>
     <properties>
         <maven.compiler.release>25</maven.compiler.release>
