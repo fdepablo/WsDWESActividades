@@ -36,6 +36,7 @@ public class ServletOrdenador extends HttpServlet {
         if (nombre == null) {
             nombre = "";
         }
+        // strip() es como el trim() pero más moderno, adaptado para unicode
         nombre = nombre.strip();
         request.setAttribute("nombre", nombre);
 

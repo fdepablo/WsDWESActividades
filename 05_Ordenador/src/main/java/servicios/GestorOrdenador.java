@@ -29,6 +29,7 @@ public class GestorOrdenador {
         for (Extra extra : ordenador.getExtras()) {
             precioTotal += extra.getPrecio();
         }
+
         ordenador.setPrecioTotal(precioTotal);
         return CONFIGURACION_CORRECTA;
     }

@@ -12,7 +12,7 @@
     <p>Precio base: 300 €. Elige un procesador y, si quieres, añade extras. Precios sin IVA.</p>
 
     <c:if test="${not empty error}">
-        <p role="alert"><c:out value="${error}"/></p>
+        <p role="alert" style="color:red"><c:out value="${error}"/></p>
     </c:if>
 
     <form action="${pageContext.request.contextPath}/configurar" method="post" accept-charset="UTF-8">
