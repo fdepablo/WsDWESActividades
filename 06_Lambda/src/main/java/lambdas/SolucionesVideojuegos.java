@@ -37,6 +37,8 @@ public class SolucionesVideojuegos {
         System.out.println(presentar.apply(videojuegos.get(0)));
         System.out.println(presentar.apply(videojuegos.get(1)));
 
+        // 2. Crea una función que reciba un videojuego y tu presupuesto. Debe devolver true
+        // si puedes comprarlo y false si no te llega el dinero.
 
         // 2.a. Predicate recibe el juego y captura un presupuesto definido fuera de la lambda.
         double presupuestoDisponible = 30.0;
@@ -70,6 +72,8 @@ public class SolucionesVideojuegos {
         System.out.println(elegirMejor.apply(videojuegos.get(0), videojuegos.get(2)));
 
 
+        // 4. Prepara una lista que contenga únicamente los nombres de todos los videojuegos,
+        // en el mismo orden del catálogo.
         // 4.a. collect(Collectors.toList()) recoge los nombres en el orden del catálogo.
         // Su contrato no garantiza que la lista sea modificable ni que sea un ArrayList.
         List<String> nombresConCollect = videojuegos.stream()
@@ -79,6 +83,7 @@ public class SolucionesVideojuegos {
         System.out.println(nombresConCollect);
 
         // 4.b. toList() crea una lista no modificable con los mismos nombres.
+        // Esto esta desde la versión 16.
         List<String> nombres = videojuegos.stream()
             .map(juego -> juego.nombre())
             .toList();
@@ -100,6 +105,9 @@ public class SolucionesVideojuegos {
 
         System.out.println(juegosSandbox);
 
+        // 6. Tienes 20 € y buscas juegos con una valoración de al menos 9.
+        // Obtén los videojuegos que cumplen ambas condiciones.
+        // Incluye los que cuestan exactamente 20 € o tienen exactamente un 9.
 
         // 6.a. Un solo filtro combina las dos condiciones mediante &&.
         List<Videojuego> buenasCompras = videojuegos.stream()
@@ -116,16 +124,7 @@ public class SolucionesVideojuegos {
 
         System.out.println(buenasComprasConDosFiltros);
 
-
-        // 7. Mostrar los juegos numerados desde 1, con su nombre y precio.
-        IntStream.range(0, videojuegos.size()).forEach(indice -> {
-            Videojuego juego = videojuegos.get(indice);
-            System.out.println((indice + 1) + ". " + juego.nombre()
-                + " — " + juego.precio() + " €");
-        });
-
-
-        // 8. Crear un catálogo con un descuento del 25 %, conservando los demás datos.
+        // 7. Crear un catálogo con un descuento del 25 %, conservando los demás datos.
         List<Videojuego> catalogoRebajado = videojuegos.stream()
             .map(juego -> new Videojuego(
                 juego.nombre(),
@@ -138,15 +137,15 @@ public class SolucionesVideojuegos {
         System.out.println(catalogoRebajado);
 
 
-        // 9. Calcular el coste del catálogo.
-        // 9.a. Con una lambda y sum().
+        // 8. Calcular el coste del catálogo.
+        // 8.a. Con una lambda y sum().
         double total = videojuegos.stream()
             .mapToDouble(juego -> juego.precio())
             .sum();
 
         System.out.println("Comprar todo el catálogo cuesta " + total + " €");
 
-        // 9.b. Acumular los precios con un bucle for, sin funciones lambda.
+        // 8.b. Acumular los precios con un bucle for, sin funciones lambda.
         double totalConBucle = 0;
         for (Videojuego juego : videojuegos) {
             totalConBucle += juego.precio();
@@ -155,7 +154,7 @@ public class SolucionesVideojuegos {
         System.out.println("Comprar todo el catálogo cuesta " + totalConBucle + " €");
 
 
-        // 10. Obtener los nombres de los juegos que cuestan entre 15 y 40 €, ambos incluidos.
+        // 9. Obtener los nombres de los juegos que cuestan entre 15 y 40 €, ambos incluidos.
         List<String> nombresEnIntervalo = videojuegos.stream()
             .filter(juego -> juego.precio() >= 15 && juego.precio() <= 40)
             .map(juego -> juego.nombre())
@@ -163,35 +162,7 @@ public class SolucionesVideojuegos {
 
         System.out.println(nombresEnIntervalo);
 
-
-        // 11. Buscar juegos por presupuesto y devolver mensajes con su nombre y precio.
-        // 11.a. Function recibe el presupuesto y utiliza el catálogo videojuegos del entorno.
-        Function<Double, List<String>> buscarEnVideojuegos = presupuesto -> videojuegos.stream()
-            .filter(juego -> juego.precio() <= presupuesto)
-            .map(juego -> juego.nombre() + ": " + juego.precio() + " €")
-            .toList();
-
-        System.out.println("Con 15 €:");
-        System.out.println(buscarEnVideojuegos.apply(15.0));
-
-        System.out.println("Con 5 €:");
-        System.out.println(buscarEnVideojuegos.apply(5.0));
-
-        // 11.b. BiFunction recibe el catálogo y el presupuesto en cada llamada.
-        BiFunction<List<Videojuego>, Double, List<String>> buscarPorPresupuesto =
-            (catalogo, presupuesto) -> catalogo.stream()
-                .filter(juego -> juego.precio() <= presupuesto)
-                .map(juego -> juego.nombre() + ": " + juego.precio() + " €")
-                .toList();
-
-        System.out.println("Con 15 €:");
-        System.out.println(buscarPorPresupuesto.apply(videojuegos, 15.0));
-
-        System.out.println("Con 5 €:");
-        System.out.println(buscarPorPresupuesto.apply(videojuegos, 5.0));
-
-
-        // 12. Mostrar juegos con valoración de al menos 9 que cuesten hasta 15 € tras rebajarlos un 10 %.
+        // 10. Mostrar juegos con valoración de al menos 9 que cuesten hasta 15 € tras rebajarlos un 10 %.
         videojuegos.stream()
             .filter(juego -> juego.valoracion() >= 9)
             .map(juego -> new Videojuego(
@@ -204,5 +175,32 @@ public class SolucionesVideojuegos {
             .forEach(juego -> System.out.println(
                 juego.nombre() + ": " + juego.precio() + " €"
             ));
+
+
+        // Buscar juegos por presupuesto y devolver mensajes con su nombre y precio.
+        // a. Function recibe el presupuesto y utiliza el catálogo videojuegos del entorno.
+        Function<Double, List<String>> buscarEnVideojuegos = presupuesto -> videojuegos.stream()
+                .filter(juego -> juego.precio() <= presupuesto)
+                .map(juego -> juego.nombre() + ": " + juego.precio() + " €")
+                .toList();
+
+        System.out.println("Con 15 €:");
+        System.out.println(buscarEnVideojuegos.apply(15.0));
+
+        System.out.println("Con 5 €:");
+        System.out.println(buscarEnVideojuegos.apply(5.0));
+
+        // b. BiFunction recibe el catálogo y el presupuesto en cada llamada.
+        BiFunction<List<Videojuego>, Double, List<String>> buscarPorPresupuesto =
+                (catalogo, presupuesto) -> catalogo.stream()
+                        .filter(juego -> juego.precio() <= presupuesto)
+                        .map(juego -> juego.nombre() + ": " + juego.precio() + " €")
+                        .toList();
+
+        System.out.println("Con 15 €:");
+        System.out.println(buscarPorPresupuesto.apply(videojuegos, 15.0));
+
+        System.out.println("Con 5 €:");
+        System.out.println(buscarPorPresupuesto.apply(videojuegos, 5.0));
     }
 }

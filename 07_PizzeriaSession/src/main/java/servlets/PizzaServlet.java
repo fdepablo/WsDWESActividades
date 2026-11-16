@@ -23,7 +23,7 @@ public class PizzaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/vistas/formulario.jsp").forward(request, response);
+       request.getRequestDispatcher("/WEB-INF/vistas/formulario.jsp").forward(request, response);
     }
 
     /** Los datos personales se reciben solo al empezar; los precios siempre los calcula Java. */
@@ -49,6 +49,7 @@ public class PizzaServlet extends HttpServlet {
         List<String> ingredientes = recibidos == null ? List.of() : Arrays.asList(recibidos);
 
         Pizza pizza = new Pizza(limpiar(request.getParameter("tamano")), ingredientes);
+
         int resultado = gestorPizza.procesar(cliente, pizza);
         switch (resultado) {
             case GestorPizza.PEDIDO_CORRECTO:

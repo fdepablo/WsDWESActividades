@@ -13,7 +13,9 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession sesion = request.getSession(false);
-        if (sesion != null) { sesion.invalidate(); }
+        if (sesion != null) {
+            sesion.invalidate();
+        }
         response.sendRedirect(request.getContextPath() + "/formulario");
     }
 }
